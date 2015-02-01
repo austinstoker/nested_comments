@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   def index
-    @comments = Comment.all
+    Comment.rebuild!    
+    @comments = Comment.hash_tree
   end
 
   def new
